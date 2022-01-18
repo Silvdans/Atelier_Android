@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
-import com.google.zxing.integration.android.IntentIntegrator
 
 class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,9 +13,8 @@ class MainActivity : BaseActivity() {
 
         val imageQRCode = findViewById<ImageView>(R.id.button_qr_code)
         imageQRCode.setOnClickListener(View.OnClickListener {
-            val intentIntegrator = IntentIntegrator(this)
-            intentIntegrator.setDesiredBarcodeFormats(listOf(IntentIntegrator.QR_CODE))
-            intentIntegrator.initiateScan()
+            val newIntent = Intent(application,QRCodeActivity::class.java)
+            startActivity(newIntent)
         })
         val buttonForm = findViewById<Button>(R.id.button_form)
         buttonForm.setOnClickListener(View.OnClickListener {
