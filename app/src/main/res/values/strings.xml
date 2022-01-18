@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Atelier_Android</string>
+    <string name="txt_btn_form">Remplir formulaire manuellement</string>
+
 </resources>
