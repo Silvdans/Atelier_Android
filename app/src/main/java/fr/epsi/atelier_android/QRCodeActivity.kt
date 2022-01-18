@@ -1,7 +1,9 @@
 package fr.epsi.atelier_android
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import com.budiyev.android.codescanner.AutoFocusMode
 import com.budiyev.android.codescanner.CodeScanner
@@ -9,6 +11,7 @@ import com.budiyev.android.codescanner.CodeScannerView
 import com.budiyev.android.codescanner.DecodeCallback
 import com.budiyev.android.codescanner.ErrorCallback
 import com.budiyev.android.codescanner.ScanMode
+import org.json.JSONObject
 
 class QRCodeActivity : BaseActivity() {
     private lateinit var codeScanner: CodeScanner
@@ -32,7 +35,24 @@ class QRCodeActivity : BaseActivity() {
         // Callbacks
         codeScanner.decodeCallback = DecodeCallback {
             runOnUiThread {
-                Toast.makeText(this, "Scan result: ${it.text}", Toast.LENGTH_LONG).show()
+                val jsonData = JSONObject(it.text)
+                val firstName = jsonData.optString("firstName")
+                val lastName = jsonData.optString("lastName")
+                val email = jsonData.optString("email")
+                val address = jsonData.optString("address")
+                val zipcode = jsonData.optString("zipcode")
+                val city = jsonData.optString("city")
+                val cardRef = jsonData.optString("cardRef")
+                val newIntent = Intent(application,FormActivity::class.java)
+                newIntent.putExtra("firstName",firstName)
+                newIntent.putExtra("lastName",lastName)
+                newIntent.putExtra("email",email)
+                newIntent.putExtra("address",address)
+                newIntent.putExtra("zipcode",zipcode)
+                newIntent.putExtra("city",city)
+                newIntent.putExtra("cardRef",cardRef)
+
+                startActivity(newIntent)
             }
         }
         codeScanner.errorCallback = ErrorCallback { // or ErrorCallback.SUPPRESS
