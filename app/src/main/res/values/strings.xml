@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Atelier_Android</string>
     <string name="txt_btn_form">Remplir formulaire manuellement</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_maps_activityyo">MapsActivityyo</string>
+    <string name="title_activity_maps">MapsActivity</string>
 
 </resources>

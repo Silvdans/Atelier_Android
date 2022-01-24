@@ -1,7 +1,10 @@
 package fr.epsi.atelier_android
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
 import android.widget.EditText
 
 class FormActivity : BaseActivity() {
@@ -32,6 +35,11 @@ class FormActivity : BaseActivity() {
         val cardRef = intent.getStringExtra("cardRef")
         val editCardRef = findViewById<EditText>(R.id.editTextRefCard)
 
+        val button = findViewById<Button>(R.id.buttonGo)
+        button.setOnClickListener(View.OnClickListener{
+            val newIntent = Intent(application,FragmentActivity::class.java)
+            startActivity(newIntent)
+        })
         if(!(firstName.equals(null)))
         {
             editFirstName.setText(firstName)
@@ -42,5 +50,6 @@ class FormActivity : BaseActivity() {
             editCity.setText(city)
             editCardRef.setText(cardRef)
         }
+
     }
 }
