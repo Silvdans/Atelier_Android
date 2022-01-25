@@ -2,14 +2,24 @@ package fr.epsi.atelier_android
 
 import android.os.Bundle
 import android.view.View
+import android.widget.EditText
 import android.widget.TextView
+import androidx.fragment.app.Fragment
+import com.google.android.material.tabs.TabLayout
 
 class FragmentActivity : BaseActivity() {
-    val tab1Fragment= Tab1Fragment.newInstance("yo1","yo1");
-    val tab2Fragment= Tab2Fragment.newInstance("yo2","yo2");
+
+    private lateinit var tab1Fragment : Fragment;
+    private lateinit var tab2Fragment : Fragment;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fragment)
+        val firstName = intent.getStringExtra("firstName").toString()
+        val lastName = intent.getStringExtra("lastName").toString()
+        val cardRef = intent.getStringExtra("cardRef").toString()
+        tab1Fragment = Tab1Fragment.newInstance(firstName,lastName,cardRef);
+        tab2Fragment = Tab2Fragment.newInstance("yo2","yo2");
+
         val tab1=findViewById<TextView>(R.id.textViewTab1)
         val tab2=findViewById<TextView>(R.id.textViewTab2)
         val tab3=findViewById<TextView>(R.id.textViewTab3)
