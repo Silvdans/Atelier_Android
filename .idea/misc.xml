@@ -13,6 +13,7 @@
         <entry key="app/src/main/res/layout/activity_maps_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_qrcode.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/cell_offer.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_tab1.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_tab1_frament.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_tab2.xml" value="0.1" />
