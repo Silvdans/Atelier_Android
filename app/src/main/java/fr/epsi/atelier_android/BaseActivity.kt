@@ -17,6 +17,13 @@ open class BaseActivity : AppCompatActivity() {
             onBackPressed()
         })
     }
+    fun setLogoHeader(){
+        val logoHeader = findViewById<ImageView>(R.id.imageLogo)
+        val textHeader = findViewById<TextView>(R.id.textViewTitle)
+        logoHeader.visibility = View.VISIBLE
+        textHeader.visibility = View.GONE
+
+    }
     fun showToast(txt : String){
         Toast.makeText(this,txt, Toast.LENGTH_SHORT).show()
     }

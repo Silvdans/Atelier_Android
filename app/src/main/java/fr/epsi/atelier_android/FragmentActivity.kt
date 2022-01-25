@@ -5,8 +5,8 @@ import android.view.View
 import android.widget.TextView
 
 class FragmentActivity : BaseActivity() {
-    val tab1Fragment= Tab2Fragment.newInstance("yo1","yo1");
-    val tab2Fragment= Tab3Fragment.newInstance("yo2","yo2");
+    val tab1Fragment= Tab1Fragment.newInstance("yo1","yo1");
+    val tab2Fragment= Tab2Fragment.newInstance("yo2","yo2");
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fragment)
@@ -14,6 +14,7 @@ class FragmentActivity : BaseActivity() {
         val tab2=findViewById<TextView>(R.id.textViewTab2)
         val tab3=findViewById<TextView>(R.id.textViewTab3)
         showBack()
+        setLogoHeader()
 
         tab1.setOnClickListener(View.OnClickListener {
             showTab1()

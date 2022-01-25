@@ -38,6 +38,9 @@ class FormActivity : BaseActivity() {
         val button = findViewById<Button>(R.id.buttonGo)
         button.setOnClickListener(View.OnClickListener{
             val newIntent = Intent(application,FragmentActivity::class.java)
+            newIntent.putExtra("firstName",firstName)
+            newIntent.putExtra("lastName",lastName)
+            newIntent.putExtra("cardRef",cardRef)
             startActivity(newIntent)
         })
         if(!(firstName.equals(null)))
