@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        layout="@layout/layout_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <EditText
+                style="@style/FormEdit"
+                android:id="@+id/editTextFirstNameAccount"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Prénom" />
+            <EditText
+                style="@style/FormEdit"
+                android:id="@+id/editTextLastNameAccount"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Nom" />
+            <EditText
+                style="@style/FormEdit"
+                android:id="@+id/editEmailAccount"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:hint="Email" />
+            <EditText
+                style="@style/FormEdit"
+                android:id="@+id/editTextAddressAcount"
+                android:ems="10"
+                android:inputType="textPostalAddress"
+                android:hint="Adresse" />
+            <EditText
+                style="@style/FormEdit"
+                android:id="@+id/editTextZipcodeAccount"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="Code Postal" />
+            <EditText
+                style="@style/FormEdit"
+                android:id="@+id/editTextCityAccount"
+                android:ems="10"
+                android:inputType="none"
+                android:hint="Ville" />
+
+            <Button
+                android:id="@+id/buttonConfirm"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:text="J'enregistre les modifications"/>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

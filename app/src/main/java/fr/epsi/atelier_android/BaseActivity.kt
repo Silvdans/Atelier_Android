@@ -1,5 +1,6 @@
 package fr.epsi.atelier_android
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -20,8 +21,14 @@ open class BaseActivity : AppCompatActivity() {
     fun setLogoHeader(){
         val logoHeader = findViewById<ImageView>(R.id.imageLogo)
         val textHeader = findViewById<TextView>(R.id.textViewTitle)
+        val detailLogo = findViewById<ImageView>(R.id.detailImageView)
         logoHeader.visibility = View.VISIBLE
         textHeader.visibility = View.GONE
+        detailLogo.visibility = View.VISIBLE
+        detailLogo.setOnClickListener(View.OnClickListener {
+            val newIntent = Intent(application,AccountActivity::class.java)
+            startActivity(newIntent)
+        })
 
     }
     fun showToast(txt : String){

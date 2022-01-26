@@ -1,5 +1,7 @@
 package fr.epsi.atelier_android
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.graphics.Bitmap
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -15,9 +17,6 @@ import com.google.zxing.oned.Code128Writer
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "firstName"
-private const val ARG_PARAM2 = "lastName"
-private const val ARG_PARAM3 = "cardRef"
 
 
 /**
@@ -27,16 +26,11 @@ private const val ARG_PARAM3 = "cardRef"
  */
 class Tab1Fragment : Fragment() {
     // TODO: Rename and change types of parameters
-    private var firstName: String? = null
-    private var lastName: String? = null
-    private var cardRef: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            firstName = it.getString(ARG_PARAM1)
-            lastName = it.getString(ARG_PARAM2)
-            cardRef = it.getString(ARG_PARAM3)
+
         }
     }
 
@@ -49,13 +43,14 @@ class Tab1Fragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        displayBitmap(cardRef.toString())
-        val lastNameTextView = view.findViewById<TextView>(R.id.last_name_text_view)
-        lastNameTextView.text = lastName
-        val firstNamesTextView = view.findViewById<TextView>(R.id.first_name_text_view)
-        firstNamesTextView.text = firstName
 
+        super.onViewCreated(view, savedInstanceState)
+        val editLastName = view.findViewById<TextView>(R.id.last_name_text_view)
+        val editFirstName = view.findViewById<TextView>(R.id.first_name_text_view)
+        val cardRef :String = readSharedPref("cardRef")
+        editFirstName.text = readSharedPref("firstName")
+        editLastName.text = readSharedPref("lastName")
+        displayBitmap(cardRef.toString())
     }
     private fun displayBitmap(value: String) {
         val widthPixels = resources.getDimensionPixelSize(R.dimen.width_barcode)
@@ -116,6 +111,13 @@ class Tab1Fragment : Fragment() {
         )
         return bitmap
     }
+    fun readSharedPref(key:String):String{
+        activity?.let{
+            val sharedPreferences: SharedPreferences = it.getSharedPreferences("account", Context.MODE_PRIVATE)
+            return sharedPreferences.getString(key,"not found").toString()
+        }
+        return ""
+    }
 
 
     companion object {
@@ -129,12 +131,10 @@ class Tab1Fragment : Fragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String, param3: String) =
+        fun newInstance() =
             Tab1Fragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                    putString(ARG_PARAM3, param3)
+
                 }
             }
     }

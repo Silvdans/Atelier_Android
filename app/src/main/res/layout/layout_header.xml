@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     >
     <RelativeLayout
+        android:id="@+id/layoutHeader"
         android:background="@color/blue"
         android:layout_width="match_parent"
         android:layout_height="60dp">
@@ -33,6 +34,14 @@
             android:layout_centerVertical="true"
             android:src="@drawable/arrow_back"
             android:visibility="gone"/>
+        <ImageView
+            android:id="@+id/detailImageView"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:adjustViewBounds="true"
+            android:visibility="gone"
+            android:src="@drawable/detail"/>
 
     </RelativeLayout>
 

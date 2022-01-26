@@ -2,11 +2,13 @@ package fr.epsi.atelier_android
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.google.android.gms.maps.CameraUpdateFactory
 import org.json.JSONObject
@@ -20,6 +22,7 @@ class MapsActivity : Fragment() {
 
     lateinit var googleMap :GoogleMap
 
+    @RequiresApi(Build.VERSION_CODES.N)
     @SuppressLint("MissingPermission")
     val locationPermissionRequest = registerForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions()

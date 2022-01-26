@@ -1,11 +1,11 @@
 package fr.epsi.atelier_android
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
-import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.google.android.material.tabs.TabLayout
 
 class FragmentActivity : BaseActivity() {
 
@@ -14,10 +14,7 @@ class FragmentActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fragment)
-        val firstName = intent.getStringExtra("firstName").toString()
-        val lastName = intent.getStringExtra("lastName").toString()
-        val cardRef = intent.getStringExtra("cardRef").toString()
-        tab1Fragment = Tab1Fragment.newInstance(firstName,lastName,cardRef);
+        tab1Fragment = Tab1Fragment.newInstance();
         tab2Fragment = Tab2Fragment.newInstance("yo2","yo2");
 
         val tab1=findViewById<TextView>(R.id.textViewTab1)
@@ -71,5 +68,9 @@ class FragmentActivity : BaseActivity() {
             super.onBackPressed()
         else
             finish()
+    }
+    fun readSharedPref(key:String):String{
+        val sharedPreferences: SharedPreferences = getSharedPreferences("account", Context.MODE_PRIVATE)
+        return sharedPreferences.getString(key,"not found").toString()
     }
 }

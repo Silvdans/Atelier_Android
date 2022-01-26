@@ -1,7 +1,8 @@
 package fr.epsi.atelier_android
 
+import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -38,9 +39,14 @@ class FormActivity : BaseActivity() {
         val button = findViewById<Button>(R.id.buttonGo)
         button.setOnClickListener(View.OnClickListener{
             val newIntent = Intent(application,FragmentActivity::class.java)
-            newIntent.putExtra("firstName",editFirstName.text.toString())
-            newIntent.putExtra("lastName",editLastName.text.toString())
-            newIntent.putExtra("cardRef",editCardRef.text.toString())
+            writeSharedPref("firstName",editFirstName.text.toString())
+            writeSharedPref("lastName",editLastName.text.toString())
+            writeSharedPref("email",editEmail.text.toString())
+            writeSharedPref("address",editAddress.text.toString())
+            writeSharedPref("zipcode",editZipcode.text.toString())
+            writeSharedPref("city",editCity.text.toString())
+            writeSharedPref("cardRef",editCardRef.text.toString())
+            writeSharedisCreated("isCreated",true)
             startActivity(newIntent)
         })
         if(!(firstName.equals(null)))
@@ -53,6 +59,23 @@ class FormActivity : BaseActivity() {
             editCity.setText(city)
             editCardRef.setText(cardRef)
         }
+    }
+    fun writeSharedPref(key:String,value:String){
+        val sharedPreferences: SharedPreferences = getSharedPreferences("account", Context.MODE_PRIVATE)
+        val editor =sharedPreferences.edit()
+        editor.putString(key,value)
+        editor.apply()
+    }
+    fun writeSharedisCreated(key:String,value:Boolean){
+        val sharedPreferences: SharedPreferences = getSharedPreferences("account", Context.MODE_PRIVATE)
+        val editor =sharedPreferences.edit()
+        editor.putBoolean(key,value)
+        editor.apply()
+    }
 
+
+    fun readSharedPref(key:String):String{
+        val sharedPreferences: SharedPreferences = getSharedPreferences("account", Context.MODE_PRIVATE)
+        return sharedPreferences.getString(key,"not found").toString()
     }
 }
