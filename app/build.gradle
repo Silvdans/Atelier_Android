@@ -6,7 +6,7 @@ plugins {
 android {
     signingConfigs {
         config {
-            storeFile file('/home/loic/Documents/EPSI/Dev_Mobile/Atelier_Android/keystore.jks')
+            storeFile file('../keystore.jks')
             storePassword 'epsi2022'
             keyAlias 'epsi2022'
             keyPassword 'epsi2022'
