@@ -148,7 +148,7 @@ class MapsActivity : Fragment() {
             .build()
 
 
-        val call = okHttpClient.newCall(request).enqueue(object : Callback {
+        okHttpClient.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 TODO("Not yet implemented")
             }
@@ -164,29 +164,38 @@ class MapsActivity : Fragment() {
         val jsonCities= JSONObject(market)
         val items=jsonCities.getJSONArray("stores")
 
-        var marketAddress: String
-        var marketName: String
+        var marketAddress: String = ""
+        var marketName: String = ""
+        var marketID: Int = 0
         var marketZipcode= String()
         var marketDescription = String()
         var marketPicture= String()
         var marketCity= String()
-
+        val markets = arrayListOf<Market>()
         for(i in 0 until items.length()){
+
             val jsonCity= items.getJSONObject(i)
             val cityLatLng = LatLng(jsonCity.optDouble("latitude", 0.0), jsonCity.optDouble("longitude",0.0))
              marketAddress = jsonCity.optString("address")
+             marketID = jsonCity.optInt("storeId")
              marketName = jsonCity.optString("name")
              marketZipcode = jsonCity.optString("zipcode")
              marketDescription = jsonCity.optString("description")
              marketPicture = jsonCity.optString("pictureStore")
              marketCity = jsonCity.optString("city")
 
+             val market = Market(jsonCity.optString("name",marketName),
+                jsonCity.optString("adresse",marketAddress),
+                jsonCity.optString("description",marketDescription),
+                jsonCity.optString("pictureStore",marketPicture),
+                jsonCity.optString("zipecode",marketZipcode),
+                jsonCity.optString("city",marketCity))
+            markets.add(market)
+
             googleMap.addMarker(MarkerOptions()
                 .position(cityLatLng)
                 .title(marketName)
-                .snippet(marketAddress))
-
-        }
+                .snippet(marketAddress))      }
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(48.854885,2.338646),5f))
 
         googleMap.setOnMapClickListener {
@@ -195,14 +204,14 @@ class MapsActivity : Fragment() {
         googleMap.setOnInfoWindowClickListener {
             (activity as BaseActivity).showToast(it.title.toString())
             val newIntent = Intent(activity,MarketActivity::class.java)
+            newIntent.putExtra("title",marketName)
+            newIntent.putExtra("adresse",marketAddress)
             newIntent.putExtra("urlImage",marketPicture)
             newIntent.putExtra("zipecode",marketZipcode)
             newIntent.putExtra("city",marketCity)
             newIntent.putExtra("description",marketDescription)
             startActivity(newIntent)
         }
-
-
 
         this.googleMap=googleMap
         locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))

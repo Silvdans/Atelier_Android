@@ -11,17 +11,26 @@
         layout="@layout/layout_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:gravity="center_horizontal"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
             <ImageView
                 android:id="@+id/imageViewMarket"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="300dp"
                 android:adjustViewBounds="true"/>
+            <TextView
+                android:id="@+id/adresseViewMarket"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:gravity="left"
+                android:textSize="18sp"
+                android:layout_weight="1"
+                android:maxLines="1"
+                android:ellipsize="end"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:gravity="center_horizontal"
