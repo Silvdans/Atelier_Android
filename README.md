@@ -1,3 +1,3 @@
 Loic Delpierre <br/>
-Mathis Recles <br/>
+Mathis Reclus <br/>
 Hugo Dauphin
