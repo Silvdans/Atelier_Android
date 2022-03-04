@@ -95,7 +95,7 @@ class Tab1Fragment : Fragment() {
             }
         }
 
-        val bitmap = Bitmap.createBitmap(
+         val bitmap = Bitmap.createBitmap(
             bitMatrix.width,
             bitMatrix.height,
             Bitmap.Config.ARGB_8888
@@ -117,6 +117,7 @@ class Tab1Fragment : Fragment() {
             return sharedPreferences.getString(key,"not found").toString()
         }
         return ""
+
     }
 
 

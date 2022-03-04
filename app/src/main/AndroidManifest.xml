@@ -19,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Atelier_Android">
         <activity
+            android:name=".MarketActivity"
+            android:exported="false" />
+        <activity
             android:name=".AccountActivity"
             android:exported="false" />
         <activity

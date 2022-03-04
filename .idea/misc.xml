@@ -4,6 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../../layout/custom_preview.xml" value="0.17447916666666666" />
+        <entry key="..\:/Users/Mathi/AndroidStudioProjects/Atelier_Android/app/src/main/res/layout/activity_form.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Mathi/AndroidStudioProjects/Atelier_Android/app/src/main/res/layout/activity_fragment.xml" value="0.1984375" />
+        <entry key="..\:/Users/Mathi/AndroidStudioProjects/Atelier_Android/app/src/main/res/layout/activity_maps_fragment.xml" value="0.1984375" />
+        <entry key="..\:/Users/Mathi/AndroidStudioProjects/Atelier_Android/app/src/main/res/layout/activity_market.xml" value="0.25" />
+        <entry key="..\:/Users/Mathi/AndroidStudioProjects/Atelier_Android/app/src/main/res/layout/activity_qrcode.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Mathi/AndroidStudioProjects/Atelier_Android/app/src/main/res/layout/cell_offer.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Mathi/AndroidStudioProjects/Atelier_Android/app/src/main/res/layout/fragment_tab1.xml" value="0.1984375" />
+        <entry key="..\:/Users/Mathi/AndroidStudioProjects/Atelier_Android/app/src/main/res/layout/fragment_tab2.xml" value="0.1984375" />
+        <entry key="..\:/Users/Mathi/AndroidStudioProjects/Atelier_Android/app/src/main/res/layout/layout_tabbar.xml" value="0.25416666666666665" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.15833333333333333" />
         <entry key="app/src/main/res/layout/activity_account.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_form.xml" value="0.13333333333333333" />
